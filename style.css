@@ -26,11 +26,97 @@
     grid-row: span 2;
     height: 84px;
     background-color: #e4b524;
+    color: white;
+    padding: 40px 17px 14px;
 }
 .resultCalculator {
     width: 207px;
     height: 62px;
     background-color: #e5e9d6;
 }
+#display {
+    /* padding-left: 112px;
+    padding-bottom: 22px;
+    padding-top: 22px;
+    padding-right: 14px; */
+    font-size: 15px;
+}
 /* CALENDAR */
+.bgCalendar {
+    background-color: #91c0d3;
+    width: 800px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.contentCalendar {
+    width: 450px;
+    height: 458px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.headerCalendar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #da2128;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.arrowbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.calendartitle {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 26pt;
+    font-family: 'OpenSans', sans-serif;
+}
+.dayCalendar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* font-size: 26px; */
+    font-size: 20px;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: bold;
+    padding: 0px 14px;
+}
+.dayCurrentCalendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.dayCell {
+    /* height: 56px;
+    width: 56px; */
+    height: 48px;
+    width: 48px;
+    background-color: #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 20pt;
+    font-family: 'OpenSans', sans-serif;
+}
+
+.today {
+    background-color: #da2128;
+    color: white;
+}

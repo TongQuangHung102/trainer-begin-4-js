@@ -1,3 +1,4 @@
+// CALCULATOR
 const resultDisplay = document.querySelector('#display');
 const memoryDisplay = document.querySelector('#memoryDisplay');
 const buttons = document.querySelectorAll('.keyboardCalculator button');
@@ -22,6 +23,7 @@ function handleNumberInput(number) {
     ) {
         currentInput = number;
     } else {
+        if (currentInput.length >= 27) return;
         currentInput += number;
     }
     updateDisplay();
@@ -44,10 +46,7 @@ function handleClearInput() {
 //Xử lý khi người dùng nhấn một trong các nút toán tử (+, -, x, ÷).
 function handleOperatorInput(newOperator) {
     //Kiểm tra xem đã nhập một số trước khi chọn một toán tử hay chưa.
-    if (
-        currentInput !== '0' &&
-        !isNaN(parseFloat(currentInput))
-    ) {
+    if (currentInput !== '0' && !isNaN(parseFloat(currentInput))) {
         if (previousInput !== null && operator !== null) {
             calculateResult();
         }
@@ -102,7 +101,7 @@ function calculateResult() {
             break;
     }
 
-    currentInput = String(result);
+    currentInput = String(result).slice(0, 27);
     updateDisplay();
 }
 //Xử lý khi người dùng nhấn nút "m+" (cộng giá trị currentInput vào biến memory).
@@ -160,3 +159,71 @@ buttons.forEach((button) => {
         }
     });
 });
+// CALENDAR
+const title = document.querySelector('.calendartitle');
+const calendarBody = document.querySelector('.dayCurrentCalendar');
+const prevBtn = document.querySelectorAll('.arrowbtn')[0];
+const nextBtn = document.querySelectorAll('.arrowbtn')[1];
+
+let currentDate = new Date();
+const today = new Date();
+
+function renderCalendar(year, month) {
+    const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ];
+    title.textContent = `${monthNames[month]} ${year}`;
+
+    calendarBody.innerHTML = '';
+    // Thứ mấy của ngày đầu tháng (0:CN, 6: Thứ 7)
+    const firstDayOfMonth = new Date(year, month, 1).getDay();
+    //Số ngày trong tháng (có thể là 28-31)
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    //Để thêm ô trống trước khi ngày 1 bắt đầu (chỉnh cho đúng cột)
+    const totalCells = firstDayOfMonth + daysInMonth;
+
+    for (let i = 0; i < totalCells; i++) {
+        const dayCell = document.createElement('div');
+        dayCell.classList.add('dayCell');
+
+        if (i < firstDayOfMonth) {
+            //Chèn ô rỗng (không có .dayCell) để giữ đúng vị trí thứ.
+            calendarBody.appendChild(document.createElement('div'));
+            continue;
+        } else {
+            //Tính số ngày thực tế (bắt đầu từ 1).
+            const dayNum = i - firstDayOfMonth + 1;
+            dayCell.textContent = dayNum;
+            //So sánh ngày hiện tại
+            const isToday =
+                dayNum === today.getDate() &&
+                year === today.getFullYear() &&
+                month === today.getMonth();
+            if (isToday) {
+                dayCell.classList.add('today');
+            }
+        }
+        calendarBody.appendChild(dayCell);
+    }
+}
+prevBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+});
+nextBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+});
+//Khi load trang, hiển thị tháng hiện tại luôn.
+renderCalendar(currentDate.getFullYear(), currentDate.getMonth());

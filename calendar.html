@@ -13,5 +13,35 @@
         <link rel="stylesheet" href="style.css" />
         <title>Document</title>
     </head>
-    <body></body>
+    <body>
+        <div class="bgCalendar">
+            <div class="contentCalendar">
+                <!-- HEADER -->
+                <div class="headerCalendar">
+                    <button class="arrowbtn" id="prevBtn">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="calendartitle" id="calendarTitle"></div>
+
+                    <button class="arrowbtn" id="nextBtn">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                <!-- DAYS OF WEEK -->
+                <div class="dayCalendar">
+                    <p>Su</p>
+                    <p>Mo</p>
+                    <p>Tu</p>
+                    <p>We</p>
+                    <p>Th</p>
+                    <p>Fr</p>
+                    <p>Sa</p>
+                </div>
+                <!-- CURRENT DAY -->
+                <div class="dayCurrentCalendar" id="calendarDays"></div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
 </html>
