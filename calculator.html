@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="bgCalculator">
+            <div class="contentCalculator">
+                <div class="resultCalculator">
+                    <p id="display">0</p>
+                    <small id="memoryDisplay">Memory: 0</small>
+                </div>
+                <div class="keyboardCalculator">
+                    <button data-action="memory-add"><p>m+</p></button>
+                    <button data-action="memory-subtract"><p>m-</p></button>
+                    <button data-action="memory-clear"><p>mc</p></button>
+                    <button data-action="operator"><p>÷</p></button>
+
+                    <button data-action="number"><p>7</p></button>
+                    <button data-action="number"><p>8</p></button>
+                    <button data-action="number"><p>9</p></button>
+                    <button data-action="operator"><p>x</p></button>
+
+                    <button data-action="number"><p>4</p></button>
+                    <button data-action="number"><p>5</p></button>
+                    <button data-action="number"><p>6</p></button>
+                    <button data-action="operator"><p>+</p></button>
+
+                    <button data-action="number"><p>1</p></button>
+                    <button data-action="number"><p>2</p></button>
+                    <button data-action="number"><p>3</p></button>
+                    <button data-action="equals"><p>=</p></button>
+
+                    <button data-action="number"><p>0</p></button>
+                    <button data-action="decimal"><p>.</p></button>
+                    <button data-action="clear"><p>C</p></button>
+                </div>
+            </div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

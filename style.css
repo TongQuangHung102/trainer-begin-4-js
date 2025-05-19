@@ -1,0 +1,36 @@
+/* CALCULATOR */
+.bgCalculator {
+    width: 420px;
+    height: 420px;
+    background-color: #424242;
+}
+.contentCalculator {
+    width: 206px;
+    height: 304px;
+    padding: 52px 105px;
+}
+.resultCalculator {
+    background-color: #e3e7d3;
+}
+.keyboardCalculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.keyboardCalculator button {
+    width: 52px;
+    height: 42px;
+}
+
+/* Là nút số = */
+.keyboardCalculator button:nth-child(16) {
+    grid-row: span 2;
+    height: 84px;
+    background-color: #e4b524;
+}
+.resultCalculator {
+    width: 207px;
+    height: 62px;
+    background-color: #e5e9d6;
+}
+/* CALENDAR */
+
